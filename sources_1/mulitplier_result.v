@@ -1,18 +1,26 @@
 `timescale 1ns / 1ps
 
 module multiplier_result(
-    input i_RESET,
-    input i_CLK,
-    input[3:0] i_B,
-    input i_LOAD_cmd,
-    input i_SHIFT_cmd,
-    input i_ADD_cmd,
-    input[3:0] i_Add_out,
-    input i_C_out,
-    output[7:0] o_mult_result,
-    output o_LSB,
-    output[3:0] o_ACC_7_4
+    i_CLK,
+    i_RESET,
+    i_B,
+    i_LOAD_cmd,
+    i_SHIFT_cmd,
+    i_ADD_cmd,
+    i_Add_out,
+    i_C_out,
+    o_mult_result,
+    o_LSB,
+    o_ACC_7_4
     );
+
+    input i_CLK, i_RESET;
+    input i_ADD_cmd, i_LOAD_cmd, i_SHIFT_cmd;
+    input i_C_out;
+    input[3:0] i_B, i_Add_out;
+    output o_LSB;
+    output[3:0] o_ACC_7_4;
+    output[7:0] o_mult_result;
     
     reg[8:0] r_ACC;
     reg r_temp_Add_cmd;

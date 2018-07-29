@@ -1,24 +1,27 @@
 `timescale 1ns / 1ps
 
 module controller(
-    input i_RESET,
-    input i_CLK,
-    input i_START,
-    input i_LSB,
-    output o_ADD_cmd,
-    output o_SHIFT_cmd,
-    output o_LOAD_cmd,
-    output o_DONE
+    i_CLK,
+    i_RESET,
+    i_START,
+    i_LSB,
+    o_ADD_cmd,
+    o_SHIFT_cmd,
+    o_LOAD_cmd,
+    o_DONE
     );
+
+    input i_CLK, i_RESET, i_START, i_LSB;
+    output o_ADD_cmd, o_SHIFT_cmd, o_LOAD_cmd, o_DONE;
     
-    reg[1:0] temp_count;
-    reg[2:0] state;
+    reg [1:0] temp_count;
+    reg [2:0] state;
     
-    parameter   IDLE = 3'b000,
-                INIT = 3'b001,
-                TEST = 3'b010,
-                ADD = 3'b011,
-                SHIFT = 3'b100;
+    parameter   IDLE    = 3'b000,
+                INIT    = 3'b001,
+                TEST    = 3'b010,
+                ADD     = 3'b011,
+                SHIFT   = 3'b100;
                 
     always @(posedge i_CLK or negedge i_RESET)
     begin

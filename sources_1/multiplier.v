@@ -1,22 +1,26 @@
 `timescale 1ns / 1ps
 
 module multiplier(
-    input[3:0] i_A,
-    input[3:0] i_B,
-    input i_CLK,
-    input i_RESET,
-    input i_START,
-    output[7:0] o_Y,
-    output o_DONE
+    i_A,
+    i_B,
+    i_CLK,
+    i_RESET,
+    i_START,
+    o_Y,
+    o_DONE
     );
+
+    input[3:0] i_A, i_B;
+    input i_CLK, i_RESET, i_START;
+    output[7:0] o_Y;
+    output o_DONE;
     
     wire w_ADD_cmd;
-    wire[3:0] w_Add_out;
+    wire [3:0] w_Add_out;
     wire w_C_out;
     wire w_LOAD_cmd;
     wire w_LSB;
-    wire[3:0] RA;
-    wire[3:0] RB;
+    wire [3:0] RA, RB;
     wire SHIFT_cmd;
     
     adder inst1(
